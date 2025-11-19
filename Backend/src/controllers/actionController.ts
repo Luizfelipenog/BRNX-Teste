@@ -1,22 +1,34 @@
 import { Request, Response } from "express";
 import { ActionService } from "../services/actionService";
 
-const service = new ActionService();
+const actionService = new ActionService();
 
 export class ActionController {
-  async getAll(req: Request, res: Response) {
-    const actions = await service.getAllActions();
-    return res.json(actions);
+  async list(req: Request, res: Response) {
+    try {
+      const actions = await actionService.list();
+      return res.json(actions);
+    } catch (error: any) {
+      return res.status(500).json({ error: error.message });
+    }
   }
 
   async getById(req: Request, res: Response) {
-    const { id } = req.params;
-    const action = await service.getActionById(id);
-    return res.json(action);
+    try {
+      const { id } = req.params;
+      const action = await actionService.getById(id);
+      return res.json(action);
+    } catch (error: any) {
+      return res.status(500).json({ error: error.message });
+    }
   }
 
   async create(req: Request, res: Response) {
-    const created = await service.createAction(req.body);
-    return res.status(201).json(created);
+    try {
+      const created = await actionService.create(req.body);
+      return res.status(201).json(created);
+    } catch (error: any) {
+      return res.status(500).json({ error: error.message });
+    }
   }
 }
