@@ -3,16 +3,16 @@ import { ProviderRepository } from "../repositories/providerRepository";
 const providerRepository = new ProviderRepository();
 
 export class ProviderService {
-  async create(data: any) {
-    return providerRepository.create(data);
-  }
-
-  async getAll() {
+  async list() {
     return providerRepository.findAll();
   }
 
   async getById(id: string) {
     return providerRepository.findById(id);
+  }
+
+  async create(data: any) {
+    return providerRepository.create(data);
   }
 
   async update(id: string, data: any) {
