@@ -12,11 +12,11 @@ export class DemandService {
   }
 
   async list(filters: { status?: string; providerId?: string }) {
-    return this.repository.list(filters);
+    return this.repository.findAll(filters);
   }
 
-  async get(id: string) {
-    return this.repository.getById(id);
+  async getById(id: string) {
+    return this.repository.findById(id);
   }
 
   async update(id: string, data: any) {
