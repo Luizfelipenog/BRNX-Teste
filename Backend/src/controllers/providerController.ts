@@ -13,7 +13,7 @@ export class ProviderController {
     }
   }
 
-  async get(req: Request, res: Response) {
+  async getById(req: Request, res: Response) {
     try {
       const { id } = req.params;
       const provider = await providerService.getById(id);

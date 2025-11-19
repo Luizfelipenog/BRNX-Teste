@@ -1,13 +1,25 @@
-import { Router } from 'express';
-import { actionController } from '../controllers/actionController';
-import { validateBody } from '../middleware/validate';
-import { actionCreateSchema } from '../models/types';
+import { Router } from "express";
+import { ActionController } from "../controllers/actionController";
 
 const router = Router();
+const actionController = new ActionController();
 
-// Definir as rotas relacionadas a actions
-router.post('/', validateBody(actionCreateSchema), actionController.create);
-router.get('/by-demand/:demandId', actionController.listByDemand);
-router.delete('/:id', actionController.remove);
+// Criar nova ação técnica
+router.post(
+  "/",
+  (req, res) => actionController.create(req, res)
+);
+
+// Listar todas as ações
+router.get(
+  "/",
+  (req, res) => actionController.list(req, res)
+);
+
+// Obter ação por ID
+router.get(
+  "/:id",
+  (req, res) => actionController.getById(req, res)
+);
 
 export default router;

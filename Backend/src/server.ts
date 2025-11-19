@@ -1,9 +1,15 @@
-import 'dotenv/config';  // Garantir que as variáveis de ambiente sejam carregadas antes de qualquer coisa
-import { env } from './config/env';  // Importa as variáveis de ambiente
-import { app } from './app';  // Importa a configuração do app
+import "dotenv/config"; // Carrega variáveis de ambiente
+import { env } from "./config/env"; 
+import { app } from "./app";
 
-const port = env.PORT || 3000;  // Usa a variável de ambiente PORT ou 3000 por padrão
+const port = Number(env.PORT) || 3000;
 
-app.listen(port, () => {
-  console.log(`BRNX backend listening on http://localhost:${port}`);
+// Importante para Docker: permitir escutar em todas as interfaces
+const host = "0.0.0.0";
+
+app.listen(port, host, () => {
+  console.log(`🚀 BRNX backend rodando em http://${host}:${port}`);
+}).on("error", (err) => {
+  console.error("❌ Erro ao iniciar o servidor:", err);
+  process.exit(1);
 });

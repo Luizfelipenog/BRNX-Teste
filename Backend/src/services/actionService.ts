@@ -7,15 +7,15 @@ export class ActionService {
     this.repository = new ActionRepository();
   }
 
-  async getAllActions() {
+  async list() {
     return this.repository.getAll();
   }
 
-  async getActionById(id: string) {
+  async getById(id: string) {
     return this.repository.getById(id);
   }
 
-  async createAction(data: any) {
+  async create(data: any) {
     return this.repository.create(data);
   }
 }
