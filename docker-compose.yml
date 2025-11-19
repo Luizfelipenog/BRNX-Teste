@@ -17,8 +17,22 @@ services:
       - db
     volumes:
       - ./Backend:/app
-      - /app/node_modules  # impede sobrescrever node_modules da imagem
+      - /app/node_modules
     command: sh -c "npx prisma generate && npm run dev"
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: brnx-frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    command: ["npm", "run", "dev", "--", "--host"]
+    depends_on:
+      - backend
 
   db:
     image: postgres:15
