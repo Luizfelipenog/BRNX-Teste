@@ -1,14 +1,18 @@
-import { PrismaClient, Prisma } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
 export class ProviderRepository {
-  async create(data: Prisma.ProviderCreateInput) {
-    return prisma.provider.create({ data });
+  async create(data: any) {
+    return prisma.provider.create({
+      data,
+    });
   }
 
   async findAll() {
-    return prisma.provider.findMany({ include: { demands: true } });
+    return prisma.provider.findMany({
+      include: { demands: true },
+    });
   }
 
   async findById(id: string) {
@@ -18,7 +22,7 @@ export class ProviderRepository {
     });
   }
 
-  async update(id: string, data: Prisma.ProviderUpdateInput) {
+  async update(id: string, data: any) {
     return prisma.provider.update({
       where: { id },
       data,
@@ -26,6 +30,8 @@ export class ProviderRepository {
   }
 
   async delete(id: string) {
-    return prisma.provider.delete({ where: { id } });
+    return prisma.provider.delete({
+      where: { id },
+    });
   }
 }
