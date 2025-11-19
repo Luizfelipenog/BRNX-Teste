@@ -1,0 +1,37 @@
+services:
+  backend:
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile
+    container_name: brnx-backend
+    ports:
+      - "3001:3000"
+    environment:
+      NODE_ENV: development
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: brnx_db
+      DB_USER: brnx_user
+      DB_PASSWORD: brnx_pass
+    depends_on:
+      - db
+    volumes:
+      - ./Backend:/app
+      - /app/node_modules  # impede sobrescrever node_modules da imagem
+    command: sh -c "npx prisma generate && npm run dev"
+
+  db:
+    image: postgres:15
+    container_name: brnx-db
+    restart: always
+    environment:
+      POSTGRES_DB: brnx_db
+      POSTGRES_USER: brnx_user
+      POSTGRES_PASSWORD: brnx_pass
+    ports:
+      - "5433:5432"
+    volumes:
+      - brnx_pgdata:/var/lib/postgresql/data
+
+volumes:
+  brnx_pgdata:

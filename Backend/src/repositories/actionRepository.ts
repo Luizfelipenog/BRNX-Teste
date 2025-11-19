@@ -1,16 +1,17 @@
-import { prisma } from '../config/database';
+import { PrismaClient } from "@prisma/client";
 
-export const actionRepository = {
-  create(data: { demandId: string; description: string; technician: string }) {
-    return prisma.action.create({ data });
-  },
-  listByDemand(demandId: string) {
-    return prisma.action.findMany({
-      where: { demandId },
-      orderBy: { executedAt: 'desc' }
-    });
-  },
-  remove(id: string) {
-    return prisma.action.delete({ where: { id } });
+const prisma = new PrismaClient();
+
+export class ActionRepository {
+  async getAll() {
+    return prisma.action.findMany();
   }
-};
+
+  async getById(id: string) {
+    return prisma.action.findUnique({ where: { id } });
+  }
+
+  async create(data: any) {
+    return prisma.action.create({ data });
+  }
+}

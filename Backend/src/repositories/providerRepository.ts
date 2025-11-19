@@ -1,20 +1,31 @@
-import { prisma } from '../config/database';
-import { Provider } from '@prisma/client';
+import { PrismaClient, Prisma } from "@prisma/client";
 
-export const providerRepository = {
-  create(data: Omit<Provider, 'id' | 'createdAt'>) {
+const prisma = new PrismaClient();
+
+export class ProviderRepository {
+  async create(data: Prisma.ProviderCreateInput) {
     return prisma.provider.create({ data });
-  },
-  list() {
-    return prisma.provider.findMany({ orderBy: { createdAt: 'desc' } });
-  },
-  get(id: string) {
-    return prisma.provider.findUnique({ where: { id } });
-  },
-  update(id: string, data: Partial<Provider>) {
-    return prisma.provider.update({ where: { id }, data });
-  },
-  remove(id: string) {
+  }
+
+  async findAll() {
+    return prisma.provider.findMany({ include: { demands: true } });
+  }
+
+  async findById(id: string) {
+    return prisma.provider.findUnique({
+      where: { id },
+      include: { demands: true },
+    });
+  }
+
+  async update(id: string, data: Prisma.ProviderUpdateInput) {
+    return prisma.provider.update({
+      where: { id },
+      data,
+    });
+  }
+
+  async delete(id: string) {
     return prisma.provider.delete({ where: { id } });
   }
-};
+}

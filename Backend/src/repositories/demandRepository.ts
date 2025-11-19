@@ -1,33 +1,37 @@
-import { prisma } from '../config/database';
-import { Demand, DemandStatus, DemandType } from '@prisma/client';
+import { PrismaClient, Prisma } from "@prisma/client";
 
-export const demandRepository = {
-  create(data: {
-    providerId: string; title: string; description: string;
-    type: DemandType; status?: DemandStatus
-  }) {
+const prisma = new PrismaClient();
+
+export class DemandRepository {
+  async create(data: Prisma.DemandCreateInput) {
     return prisma.demand.create({ data });
-  },
-  list(filters?: { status?: DemandStatus; providerId?: string }) {
+  }
+
+  async findAll(filter?: { status?: Prisma.DemandStatus; providerId?: string }) {
     return prisma.demand.findMany({
       where: {
-        status: filters?.status,
-        providerId: filters?.providerId
+        status: filter?.status,
+        providerId: filter?.providerId,
       },
-      include: { provider: true },
-      orderBy: { createdAt: 'desc' }
+      include: { actions: true, provider: true },
     });
-  },
-  get(id: string) {
+  }
+
+  async findById(id: string) {
     return prisma.demand.findUnique({
       where: { id },
-      include: { provider: true, actions: { orderBy: { executedAt: 'desc' } } }
+      include: { actions: true, provider: true },
     });
-  },
-  update(id: string, data: Partial<Demand>) {
-    return prisma.demand.update({ where: { id }, data });
-  },
-  remove(id: string) {
+  }
+
+  async update(id: string, data: Prisma.DemandUpdateInput) {
+    return prisma.demand.update({
+      where: { id },
+      data,
+    });
+  }
+
+  async delete(id: string) {
     return prisma.demand.delete({ where: { id } });
   }
-};
+}

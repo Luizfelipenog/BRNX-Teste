@@ -1,29 +1,29 @@
-# Use a versão do Node.js baseada no Alpine
+# Use Node.js baseado no Alpine
 FROM node:20-alpine
 
-# Instalar OpenSSL para resolver problemas com Prisma
-RUN apk add --no-cache openssl3
+# Instalar OpenSSL e bash
+RUN apk add --no-cache openssl3 bash
 
-
-# Define o diretório de trabalho
+# Diretório de trabalho
 WORKDIR /app
 
-# Copia o package.json e package-lock.json e instala as dependências
-COPY package.json package-lock.json* ./
+# Copiar pacotes e instalar dependências
+COPY package*.json ./
 RUN npm ci
 
-# Copia o diretório do Prisma e gera o cliente Prisma
+# Copiar tsconfig e fontes
+COPY tsconfig.json ./
+COPY src ./src
 COPY prisma ./prisma
+
+# Compilar o projeto
+RUN npm run build
+
+# Gerar o Prisma Client após build
 RUN npx prisma generate
 
-# Copia o tsconfig.json
-COPY tsconfig.json ./
-
-# Copia o código fonte da aplicação
-COPY src ./src
-
-# Expõe a porta 3000 para acesso externo
+# Expor porta
 EXPOSE 3000
 
-# Define o comando de inicialização do container
-CMD ["npm", "run", "dev"]
+# Comando padrão
+CMD ["npm", "start"]
