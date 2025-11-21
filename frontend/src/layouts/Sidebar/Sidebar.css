@@ -1,0 +1,58 @@
+/* SIDEBAR GERAL */
+.sidebar {
+  width: 240px;
+  background: #fff;
+  border-right: 1px solid #e2e2e2;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  font-family: "Outfit", sans-serif;
+}
+
+/* CABEÇALHO DO SIDEBAR */
+.sidebar-header {
+  padding: 0 20px 20px 20px;
+  text-align: center;
+}
+
+.sidebar-logo {
+  width: 140px;
+  display: block;
+  margin: 0 auto 10px;
+}
+
+/* MENU DE NAVEGAÇÃO */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sidebar-nav button {
+  background: none;
+  border: none;
+  padding: 12px 20px;
+  text-align: left;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sidebar-nav button:hover {
+  background: #e9f1ff;
+}
+
+.sidebar-nav .active {
+  background: #e9f1ff;
+  color: #004a99;
+  font-weight: bold;
+}
+
+/* ÍCONES */
+.icon {
+  min-width: 20px;
+}

@@ -1,51 +1,11 @@
 import "./Menu.css";
 import { useNavigate } from "react-router-dom";
 
-
-
-
-
-
-import {
-  LayoutDashboard,
-  Server,
-  FolderKanban,
-  Wrench
-} from "lucide-react";
 export default function Menu() {
   const navigate = useNavigate();
 
   return (
     <div className="menu-container">
-
-      {/* SIDEBAR */}
-      <aside className="sidebar">
-        <div className="sidebar-header">
-          <img src="/brnx.png" alt="Logo BRNX" className="sidebar-logo" />
-        </div>
-
-        <nav className="sidebar-nav">
-          <button className="active">
-            <LayoutDashboard size={20} className="icon" />
-            <span>Menu Principal</span>
-          </button>
-
-          <button>
-            <Server size={20} className="icon" />
-            <span>Provedores</span>
-          </button>
-
-          <button>
-            <FolderKanban size={20} className="icon" />
-            <span>Demandas</span>
-          </button>
-
-          <button>
-            <Wrench size={20} className="icon" />
-            <span>Ações Técnicas</span>
-          </button>
-        </nav>
-      </aside>
 
       {/* MAIN CONTENT */}
       <main className="main-content">
@@ -62,14 +22,14 @@ export default function Menu() {
 
             <button
               className="btn-primary"
-              onClick={() => navigate("/Provedores/Listar")}
+              onClick={() => navigate("/provedores/listar")}
             >
               Listar Provedores
             </button>
 
             <button
               className="btn-secondary"
-              onClick={() => navigate("/Provedores/Cadastrar")}
+              onClick={() => navigate("/provedores/cadastrar")}
             >
               Cadastrar Provedor
             </button>
