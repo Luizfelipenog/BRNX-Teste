@@ -74,3 +74,54 @@
     flex-direction: column;
   }
 }
+
+/* CONTAINER DOS BOTÕES */
+.buttons-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;         /* espaço entre os botões */
+  margin-top: 25px;
+}
+
+/* ESTILOS BASE PARA AMBOS BOTÕES */
+.btn-salvar,
+.btn-voltar {
+  min-width: 160px;      /* garante mesmo tamanho */
+  text-align: center;
+  padding: 12px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+
+/* BOTÃO SALVAR */
+.btn-salvar {
+  background: #0077ff;
+  color: white;
+  border: none;
+}
+
+.btn-salvar:hover {
+  background: #005fcc;
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-salvar:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* BOTÃO VOLTAR */
+.btn-voltar {
+  background: #ff0000;
+  color: #ffffff;
+  border: 1px solid #ccc;
+}
+
+.btn-voltar:hover {
+  background: #e4e4e4;
+}
+

@@ -131,3 +131,21 @@ font-family: "Outfit", sans-serif;
 .btn-detalhes:hover {
   background: #f1f1f1;
 }
+.tag-diagnostico { background: #6aa9ff; }
+.tag-manutencao { background: #ffa76a; }
+.tag-configuracao { background: #9c6aff; }
+.tag-instalacao { background: #6aff92; }
+.tag-outro { background: #8b8b8b; }
+
+
+/* Centralizar colunas específicas da tabela */
+.demandas-table th:nth-child(3),
+.demandas-table th:nth-child(4),
+.demandas-table th:nth-child(5),
+.demandas-table th:nth-child(6),
+.demandas-table td:nth-child(3),
+.demandas-table td:nth-child(4),
+.demandas-table td:nth-child(5),
+.demandas-table td:nth-child(6) {
+  text-align: center;
+}
