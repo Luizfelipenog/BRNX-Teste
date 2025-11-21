@@ -176,7 +176,33 @@
 
   - <img width="1919" height="932" alt="image" src="https://github.com/user-attachments/assets/0bb231f8-3ffc-492a-b8a9-8bdaa08c83f5" />
 
+  - Menu - Contem as principai funcionalidades do sistema
+  - <img width="1919" height="932" alt="image" src="https://github.com/user-attachments/assets/f5541893-4e74-435f-a028-006384eca2f8" />
+
+  - Provedores:
+    - Listar: Contém deleção de provedor. 
+    - <img width="1919" height="932" alt="image" src="https://github.com/user-attachments/assets/a8fd3300-7015-4c5b-b4e9-d6d400980e3b" />
+    - Cadastrar: Formulário para cadastrar provedor.
+    - <img width="1919" height="932" alt="image" src="https://github.com/user-attachments/assets/9d84ba09-58b7-4497-b30e-d2384dead29a" />
+  - Demandas:
+    - Listar: Contém as listas de demanas com filtros e opções de detalhes.
+    - <img width="1919" height="932" alt="image" src="https://github.com/user-attachments/assets/36b79198-212b-4252-b1c2-2210954c020e" />
+    - Cadastrar: Contém fórmulario para cadastrar nova demanda
+    -<img width="1919" height="932" alt="image" src="https://github.com/user-attachments/assets/5a182d1e-fc16-4c7c-8ad8-2ebbbdbc7d91" />
+  - Registro técnico:
+  - Cadastar: redireciona para a parte de demandas para a edição
+  - Histórico das ações que foram mudados os status com filtros
+  - <img width="1919" height="932" alt="image" src="https://github.com/user-attachments/assets/d075d80e-56ef-47a5-85a2-46ab14b9f278" />
+
+  - 
+
+    
+
+
+
+
   
+
 
 
 
