@@ -23,39 +23,41 @@ enum DemandStatus {
 }
 
 model Provider {
-  id            String   @id @default(uuid())
-  nomeFantasia  String
-  responsavel   String
-  contatoEmail  String?
+  id              String   @id @default(uuid())
+  nomeFantasia    String
+  responsavel     String
+  contatoEmail    String?
   contatoTelefone String?
-  createdAt     DateTime @default(now())
-  demands       Demand[]
+  createdAt       DateTime @default(now())
+  demands         Demand[]
 }
 
 model Demand {
-  id          String        @id @default(uuid())
+  id          String       @id @default(uuid())
   title       String
   description String
   type        DemandType
-  status      DemandStatus  @default(PENDENTE)
-  createdAt   DateTime      @default(now())
+  status      DemandStatus @default(PENDENTE)
+  createdAt   DateTime     @default(now())
 
-  providerId  String
-  provider    Provider      @relation(fields: [providerId], references: [id], onDelete: Cascade)
+  providerId String
+  provider   Provider @relation(fields: [providerId], references: [id], onDelete: Cascade)
 
-  actions     Action[]
+  actions Action[]
 }
 
 model Action {
-  id         String   @id @default(uuid())
+  id          String   @id @default(uuid())
   description String
   technician  String
   executedAt  DateTime @default(now())
 
-  demandId   String
-  demand     Demand   @relation(fields: [demandId], references: [id], onDelete: Cascade)
-}
+  statusBefore String?
+  statusAfter  String?
 
+  demandId String
+  demand   Demand @relation(fields: [demandId], references: [id], onDelete: Cascade)
+}
 
 model User {
   id        Int      @id @default(autoincrement())

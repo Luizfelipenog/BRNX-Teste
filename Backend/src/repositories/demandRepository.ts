@@ -1,19 +1,17 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient, DemandStatus, DemandType } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
 export class DemandRepository {
   async create(data: any) {
-    return prisma.demand.create({
-      data,
-    });
+    return prisma.demand.create({ data });
   }
 
   async findAll(filters?: { status?: string; providerId?: string }) {
     return prisma.demand.findMany({
       where: {
-        status: filters?.status,
-        providerId: filters?.providerId,
+        status: filters?.status ? filters.status as DemandStatus : undefined,
+        providerId: filters?.providerId || undefined,
       },
       include: {
         actions: true,
@@ -33,16 +31,34 @@ export class DemandRepository {
   }
 
   async update(id: string, data: any) {
+    const payload: any = {};
+
+    if (data.status) {
+      payload.status = {
+        set: data.status as DemandStatus
+      };
+    }
+
+    if (data.type) {
+      payload.type = {
+        set: data.type as DemandType
+      };
+    }
+
     return prisma.demand.update({
       where: { id },
-      data,
+      data: payload,
     });
   }
 
   async updateStatus(id: string, status: string) {
     return prisma.demand.update({
       where: { id },
-      data: { status },
+      data: {
+        status: {
+          set: status as DemandStatus
+        }
+      }
     });
   }
 

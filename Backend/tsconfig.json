@@ -9,16 +9,15 @@
     "skipLibCheck": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
-
-    "types": ["node"]         // ← ADICIONE ESTA LINHA
+    "types": ["node"]
   },
   "include": [
-    "src/**/*.ts",
-    "prisma/**/*.ts"           // ← para o seed funcionar
+    "src/**/*.ts"
   ],
   "exclude": [
     "node_modules",
     "dist",
-    "jest.config.ts"
+    "jest.config.ts",
+    "prisma"               // ← exclui completamente a pasta
   ]
 }

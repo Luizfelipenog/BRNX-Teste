@@ -58,8 +58,18 @@ export default function Menu() {
           {/* CARD AÇÕES TÉCNICAS */}
           <div className="card">
             <h3>Ações Técnicas</h3>
-            <button className="btn-primary">Registrar Ação Técnica</button>
-            <button className="btn-secondary">Consultar Histórico</button>
+              <button
+                className="btn-primary"
+                onClick={() => navigate(`/demandas/listar`)}
+              >
+                Registrar Ação Técnica
+              </button>
+              <button
+                className="btn-secondary"
+                onClick={() => navigate(`/demandas/historico`)}
+              >
+                Consultar Histórico
+              </button>
           </div>
 
           {/* CARD SISTEMA */}

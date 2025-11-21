@@ -98,13 +98,14 @@ export default function DetalhesDemanda() {
         </div>
 
         <div className="buttons-container">
+
           <button className="btn-voltar" onClick={() => navigate("/demandas/listar")}>
             Voltar
           </button>
-
           <button className="btn-salvar" onClick={salvarAlteracoes}>
             Salvar Alterações
           </button>
+
         </div>
 
       </div>

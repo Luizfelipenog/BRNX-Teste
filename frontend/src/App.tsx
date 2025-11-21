@@ -7,6 +7,7 @@ import ListarDemandas from "./pages/Demandas/Listar/ListarDemandas";
 import CadastrarDemandas from "./pages/Demandas/Cadastrar/CadastrarDemandas";
 import DashboardLayout from "./layouts/DashboardLayout";
 import DetalhesDemandas from "./pages/Demandas/Detalhes/DetalhesDemanda";
+import HistoricoAcoes from "./pages/Demandas/Historico/HistoricoAcoes";
 
 
 export default function App() {
@@ -25,6 +26,8 @@ export default function App() {
         <Route path="/demandas/listar" element={<ListarDemandas />} />
         <Route path="/demandas/cadastrar" element={<CadastrarDemandas />} />
         <Route path="/demandas/detalhes" element={<DetalhesDemandas />} />
+        <Route path="/demandas/historico" element={<HistoricoAcoes />} />
+
 
       </Route>
 
