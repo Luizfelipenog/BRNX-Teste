@@ -37,12 +37,14 @@
 .card {
   background: #fff;
   padding: 25px;
-  border-radius: 10px;
+  border-radius: 15px;
   box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   gap: 15px;
+  text-align: center; /* CENTRALIZA TODO O TEXTO */
 }
+
 
 .card h3 {
   margin: 0;
@@ -54,7 +56,7 @@
   background: #2986ff;
   color: white;
   border: none;
-  padding: 12px;
+  padding: 8px 10px;
   border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
@@ -76,7 +78,7 @@
   background: #ffffff;
   color: #333;
   border: 1px solid #c9cdd2;
-  padding: 12px;
+  padding: 8px 10px;
   border-radius: 8px;
   cursor: pointer;
   transition: 0.2s;
@@ -119,3 +121,77 @@
 .icon {
   min-width: 20px;
 }
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* agora são 2 colunas */
+  gap: 25px;
+}
+
+
+/* SEÇÃO SOBRE A EMPRESA */
+.about-section {
+  background: #ffffff;
+  padding: 40px 50px;
+  border-radius: 20px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.08);
+  margin-top: 100px;
+  margin-bottom: 100px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* CABEÇALHO COM TRAÇO AZUL E LOGO */
+.about-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 6px solid #0077ff; /* TRAÇO AZUL */
+  padding-left: 15px;
+  margin-bottom: 20px;
+}
+
+.about-header h2 {
+  font-size: 28px;
+  color: #222;
+  margin: 0;
+}
+
+.about-logo {
+  width: 80px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* TEXTO */
+.about-section p {
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+  line-height: 1.7;
+}
+
+
+/* TRAÇO AZUL NO TÍTULO PRINCIPAL */
+.main-header-line {
+  display: flex;
+  align-items: center;
+  border-left: 6px solid #0077ff; /* mesmo traço azul */
+  padding-left: 15px;
+  margin-bottom: 15px;
+}
+
+.main-header h1 {
+  margin: 0;
+  font-size: 28px;
+  color: #222;
+  font-weight: 600;
+}
+
+.card button {
+  width: 80%;          /* reduz a largura */
+  margin: 0 auto;      /* centraliza */
+}
+
+
+

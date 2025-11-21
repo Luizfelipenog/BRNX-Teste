@@ -49,10 +49,10 @@ export default function Sidebar() {
 
         <button
           className={isActive("/acoes") ? "active" : ""}
-          onClick={() => navigate("/acoes")}
+          onClick={() => navigate("/demandas/historico")}
         >
           <Wrench size={18} />
-          Ações Técnicas
+          Histórico de Ações
         </button>
       </nav>
 

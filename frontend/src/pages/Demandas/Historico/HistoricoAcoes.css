@@ -96,3 +96,38 @@
   color: #5cb85c;
   font-weight: 700;
 }
+
+
+.filtro-container {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.filtro-input {
+  width: 300px;
+  padding: 10px 12px;
+  border: 1px solid #cfd3d8;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s;
+}
+
+.filtro-input:focus {
+  border-color: #2986ff;
+  box-shadow: 0 0 4px rgba(41, 134, 255, 0.4);
+}
+
+.filtro-container {
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
+
+.filtro-container select {
+  width: 250px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 15px;
+}

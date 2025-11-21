@@ -10,7 +10,9 @@ export default function Menu() {
       {/* MAIN CONTENT */}
       <main className="main-content">
         <header className="main-header">
-          <h1>Menu Principal</h1>
+          <div className="main-header-line">
+            <h1>Menu Principal</h1>
+          </div>
           <p>Selecione uma opção abaixo para gerenciar o sistema BRNX.</p>
         </header>
 
@@ -81,6 +83,22 @@ export default function Menu() {
           </div>
 
         </div>
+
+                {/* SEÇÃO SOBRE A EMPRESA */}
+        <section className="about-section">
+          <div className="about-header">
+            <h2>Sobre a BRNX</h2>
+            <img src="/brnx.png" alt="Logo BRNX" className="about-logo" />
+          </div>
+
+          <p>
+            A BRNX é uma plataforma desenvolvida para otimizar o gerenciamento de provedores,
+            demandas operacionais e ações técnicas em campo. Nosso objetivo é oferecer um
+            ambiente simples, rápido e eficiente para que equipes possam desempenhar suas
+            atividades com autonomia e clareza.
+          </p>
+        </section>
+
       </main>
     </div>
   );

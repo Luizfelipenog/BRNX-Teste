@@ -13,15 +13,17 @@ export default function ListarDemandas() {
   const [filtroProvedor, setFiltroProvedor] = useState("");
   const [filtroStatus, setFiltroStatus] = useState("");
 
-  async function fetchDemandas() {
-    try {
-      const response = await api.get("/api/demands");
-      setDemandas(response.data);
-    } catch (error) {
-      console.error("Erro ao buscar demandas:", error);
-      alert("Não foi possível carregar as demandas.");
-    }
+async function fetchDemandas() {
+  try {
+    const response = await api.get("/api/demands");
+    setDemandas(response.data);
+  } catch (error: any) {
+    console.error("Erro ao buscar demandas:", error);
+    console.error("Status:", error.response?.status);
+    console.error("Data:", error.response?.data);
+    console.error("Headers:", error.response?.headers);
   }
+}
 
   async function fetchProvedores() {
     try {
