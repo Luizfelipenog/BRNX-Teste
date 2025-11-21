@@ -1,0 +1,133 @@
+.demandas-container {
+padding: 20px 30px;
+width: 100%;
+max-width: 1200px;
+margin: 0 auto;
+font-family: "Outfit", sans-serif;
+padding: 20px 30px;
+width: 100%;
+font-family: "Outfit", sans-serif;
+}
+
+.demandas-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.demandas-header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #222;
+}
+
+.btn-nova-demanda {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #0077ff;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: .2s;
+}
+
+.btn-nova-demanda:hover {
+  background: #005fcc;
+}
+
+/* FILTROS */
+.filtros-container {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.filtros-container select {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* CARD */
+.demandas-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 8%);
+}
+
+/* TABELA */
+.demandas-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.demandas-table th {
+  text-align: left;
+  padding: 12px;
+  font-size: 14px;
+  color: #555;
+  border-bottom: 1px solid #eee;
+}
+
+.demandas-table td {
+  padding: 14px 12px;
+  font-size: 15px;
+  color: #333;
+}
+
+.demandas-table tr:hover {
+  background: #f8faff;
+}
+
+/* TAGS DE TIPOS */
+.tag {
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: white;
+  display: inline-block;
+}
+
+.tag-diagnóstico { background: #6aa9ff; }
+.tag-manutenção { background: #ffa76a; }
+.tag-configuração { background: #9c6aff; }
+.tag-instalação { background: #6aff92; }
+.tag-outro { background: #8b8b8b; }
+
+/* STATUS */
+.status {
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.status-em-andamento { background: #fff3a3; color: #8a6d00; }
+.status-em-aberto { background: #ffd7d7; color: #c23b3b; }
+.status-concluído { background: #caffd5; color: #1f7038; }
+.status-cancelado { background: #ddd; color: #555; }
+
+/* BOTÃO DETALHES */
+.btn-detalhes {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: .2s;
+}
+
+.btn-detalhes:hover {
+  background: #f1f1f1;
+}

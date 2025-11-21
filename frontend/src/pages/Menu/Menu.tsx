@@ -38,9 +38,22 @@ export default function Menu() {
           {/* CARD DEMANDAS */}
           <div className="card">
             <h3>Demandas</h3>
-            <button className="btn-primary">Listar Demandas</button>
-            <button className="btn-secondary">Criar Nova Demanda</button>
+
+            <button
+              className="btn-primary"
+              onClick={() => navigate("/demandas/listar")}
+            >
+              Listar Demandas
+            </button>
+
+            <button
+              className="btn-secondary"
+              onClick={() => navigate("/demandas/cadastrar")}
+            >
+              Criar Nova Demanda
+            </button>
           </div>
+
 
           {/* CARD AÇÕES TÉCNICAS */}
           <div className="card">

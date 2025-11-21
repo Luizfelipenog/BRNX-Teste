@@ -3,6 +3,7 @@ import Home from "./pages/Home/Home";
 import Menu from "./pages/Menu/Menu";
 import ProvidersList from "./pages/Provedores/Listar/ProvidersList";
 import CadastrarProvider from "./pages/Provedores/Cadastrar/CadastrarProvider";
+import ListarDemandas from "./pages/Demandas/Listar/ListarDemandas";
 
 import DashboardLayout from "./layouts/DashboardLayout";
 import { Import } from "lucide-react";
@@ -19,7 +20,8 @@ export default function App() {
 
         <Route path="/menu" element={<Menu />} />
         <Route path="/provedores/listar" element={<ProvidersList />} />
-         <Route path="/provedores/cadastrar" element={<CadastrarProvider />} />
+        <Route path="/provedores/cadastrar" element={<CadastrarProvider />} />
+        <Route path="/demandas/listar" element={<ListarDemandas />} />
 
       </Route>
 
