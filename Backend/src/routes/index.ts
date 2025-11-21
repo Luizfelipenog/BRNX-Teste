@@ -1,13 +1,13 @@
-import { Router } from 'express';
-import providers from './providers';
-import demands from './demands';
-import actions from './actions';
+import { Router } from "express";
+import providerRoutes from "./providers";
+import demandRoutes from "./demands";
+import actionRoutes from "./actions";
 
 const router = Router();
 
-// Integrar todas as rotas no index
-router.use('/providers', providers);
-router.use('/demands', demands);
-router.use('/actions', actions);
+// Rotas principais da API
+router.use("/providers", providerRoutes);
+router.use("/demands", demandRoutes);
+router.use("/actions", actionRoutes);
 
 export default router;
