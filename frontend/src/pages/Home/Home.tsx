@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
 
+
 export default function Home() {
   const navigate = useNavigate();
 
@@ -22,9 +23,9 @@ export default function Home() {
 
     {/* LADO ESQUERDO */}
     <div className="left-side">
-      <img src="/logo.png" alt="Logo BRNX" className="logo" />
+      <img src="/brnx.png" alt="Logo BRNX" className="logo" />
       <h2>Bem-vindo ao Sistema BRNX</h2>
-      <p>Gerencie provedores, demandas e operações com agilidade.</p>
+      <p>Organize operações, demandas e provedores de forma simples, rápida e inteligente.</p>
     </div>
 
     {/* LADO DIREITO (FORMULÁRIO) */}
