@@ -8,8 +8,17 @@
     "strict": true,
     "skipLibCheck": true,
     "moduleResolution": "node",
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+
+    "types": ["node"]         // ← ADICIONE ESTA LINHA
   },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", "dist", "jest.config.ts"]
+  "include": [
+    "src/**/*.ts",
+    "prisma/**/*.ts"           // ← para o seed funcionar
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "jest.config.ts"
+  ]
 }

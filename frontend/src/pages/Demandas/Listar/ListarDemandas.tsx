@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { PlusCircle } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import "./ListarDemandas.css";
 
 export default function ListarDemandas() {
+  const navigate = useNavigate();
+
   const demandas = [
     {
       titulo: "Problema de conexão na Unidade Central",
@@ -42,7 +45,10 @@ export default function ListarDemandas() {
       <div className="demandas-header">
         <h1>Listagem de Demandas</h1>
 
-        <button className="btn-nova-demanda">
+        <button
+          className="btn-nova-demanda"
+          onClick={() => navigate("/demandas/cadastrar")}
+        >
           <PlusCircle size={18} /> Nova Demanda
         </button>
       </div>
@@ -94,13 +100,22 @@ export default function ListarDemandas() {
                   </span>
                 </td>
                 <td>
-                  <span className={`status status-${d.status.toLowerCase().replace(/ /g, "-")}`}>
+                  <span
+                    className={`status status-${d.status
+                      .toLowerCase()
+                      .replace(/ /g, "-")}`}
+                  >
                     {d.status}
                   </span>
                 </td>
                 <td>{d.data}</td>
                 <td>
-                  <button className="btn-detalhes">Detalhes</button>
+                  <button
+                    className="btn-detalhes"
+                    onClick={() => navigate("/demandas/detalhes")}
+                  >
+                    Detalhes
+                  </button>
                 </td>
               </tr>
             ))}

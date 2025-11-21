@@ -6,13 +6,8 @@ services:
     container_name: brnx-backend
     ports:
       - "3001:3000"
-    environment:
-      NODE_ENV: development
-      DB_HOST: db
-      DB_PORT: 5432
-      DB_NAME: brnx_db
-      DB_USER: brnx_user
-      DB_PASSWORD: brnx_pass
+    env_file:
+      - ./Backend/.env
     depends_on:
       - db
     volumes:
@@ -39,9 +34,9 @@ services:
     container_name: brnx-db
     restart: always
     environment:
-      POSTGRES_DB: brnx_db
-      POSTGRES_USER: brnx_user
-      POSTGRES_PASSWORD: brnx_pass
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
     ports:
       - "5433:5432"
     volumes:

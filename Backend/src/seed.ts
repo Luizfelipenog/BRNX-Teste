@@ -1,33 +1,27 @@
-import { prisma } from './config/database';
+import { PrismaClient } from "@prisma/client";
+import bcrypt from "bcryptjs";
 
-async function run() {
-  const provider = await prisma.provider.create({
-    data: {
-      nomeFantasia: 'BRNX Fibra',
-      responsavel: 'Ana Souza',
-      contatoEmail: 'ana@brnx.com',
-      contatoTelefone: '(86) 99999-0000'
-    }
+const prisma = new PrismaClient();
+
+async function main() {
+  const passwordHash = await bcrypt.hash("123456", 10);
+
+  await prisma.user.upsert({
+    where: { email: "admin@teste.com" },
+    update: {},
+    create: {
+      name: "Admin",
+      email: "admin@teste.com",
+      password: passwordHash
+    },
   });
 
-  const demand = await prisma.demand.create({
-    data: {
-      providerId: provider.id,
-      title: 'Lentidão na borda',
-      description: 'Tráfego alto na eth1',
-      type: 'DIAGNOSTICO',
-      status: 'PENDENTE'
-    }
-  });
-
-  await prisma.action.create({
-    data: {
-      demandId: demand.id,
-      description: 'Aplicado controle de banda',
-      technician: 'Carlos Lima'
-    }
-  });
-
-  console.log({ provider, demand });
+  console.log("Usuário admin criado!");
 }
-run().finally(() => prisma.$disconnect());
+
+main()
+  .catch((e) => {
+    console.error(e);
+    process.exit(1);
+  })
+  .finally(() => prisma.$disconnect());

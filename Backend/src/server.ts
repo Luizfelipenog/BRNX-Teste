@@ -1,6 +1,7 @@
 import "dotenv/config"; // Carrega variáveis de ambiente
 import { env } from "./config/env"; 
 import { app } from "./app";
+import authRoutes from "./routes/authRoutes";
 
 const port = Number(env.PORT) || 3000;
 
@@ -13,3 +14,5 @@ app.listen(port, host, () => {
   console.error("❌ Erro ao iniciar o servidor:", err);
   process.exit(1);
 });
+
+app.use("/auth", authRoutes);

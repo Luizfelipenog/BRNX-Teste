@@ -5,8 +5,8 @@ import ProvidersList from "./pages/Provedores/Listar/ProvidersList";
 import CadastrarProvider from "./pages/Provedores/Cadastrar/CadastrarProvider";
 import ListarDemandas from "./pages/Demandas/Listar/ListarDemandas";
 import CadastrarDemandas from "./pages/Demandas/Cadastrar/CadastrarDemandas";
-
 import DashboardLayout from "./layouts/DashboardLayout";
+import DetalhesDemandas from "./pages/Demandas/Detalhes/DetalhesDemanda";
 
 
 export default function App() {
@@ -24,6 +24,7 @@ export default function App() {
         <Route path="/provedores/cadastrar" element={<CadastrarProvider />} />
         <Route path="/demandas/listar" element={<ListarDemandas />} />
         <Route path="/demandas/cadastrar" element={<CadastrarDemandas />} />
+        <Route path="/demandas/detalhes" element={<DetalhesDemandas />} />
 
       </Route>
 
