@@ -4,9 +4,10 @@ import Menu from "./pages/Menu/Menu";
 import ProvidersList from "./pages/Provedores/Listar/ProvidersList";
 import CadastrarProvider from "./pages/Provedores/Cadastrar/CadastrarProvider";
 import ListarDemandas from "./pages/Demandas/Listar/ListarDemandas";
+import CadastrarDemandas from "./pages/Demandas/Cadastrar/CadastrarDemandas";
 
 import DashboardLayout from "./layouts/DashboardLayout";
-import { Import } from "lucide-react";
+
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="/provedores/listar" element={<ProvidersList />} />
         <Route path="/provedores/cadastrar" element={<CadastrarProvider />} />
         <Route path="/demandas/listar" element={<ListarDemandas />} />
+        <Route path="/demandas/cadastrar" element={<CadastrarDemandas />} />
 
       </Route>
 
