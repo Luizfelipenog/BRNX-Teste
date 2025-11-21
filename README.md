@@ -10,9 +10,8 @@
   - Cadastrar provedores atendidos pela consultoria.
   - Registrar demandas técnicas associadas a cada provedor.
   - Registrar e consultar ações técnicas realizadas em cada demanda.
-  - Acompanhar status e histórico completo das demandas de forma clara e rápida. :contentReference[oaicite:1]{index=1}
+  - Acompanhar status e histórico completo das demandas de forma clara e rápida. 
 
-  ---
 
 
   ## 🏗️ Tecnologias e Stack Sugerida
@@ -110,39 +109,7 @@
 
   ---
 
-  ## 🧱 Requisitos por Entidade
 
-  ### 🧩 Provedor
-
-  **Campos mínimos:**
-
-  - Nome fantasia  
-  - Nome do responsável  
-  - Dados de contato (telefone, e-mail etc.) :contentReference[oaicite:8]{index=8}  
-
-  **Funcionalidades:**
-
-  - Cadastrar novo provedor.
-  - Listar provedores.
-  - (Opcional) Editar e remover.
-
-  ---
-
-  ### 🧩 Demanda
-
-  **Campos mínimos:**
-
-  - Provedor associado  
-  - Título  
-  - Descrição detalhada  
-  - Tipo de solicitação:
-    - `Diagnóstico`
-    - `Manutenção`
-    - `Configuração`
-    - `Instalação`
-    - `Outro`
-  - Status atual  
-  - Data de criação :contentReference[oaicite:9]{index=9}  
 
   **Funcionalidades:**
 
@@ -161,14 +128,14 @@
   - Descrição da ação  
   - Nome do técnico responsável  
   - Data de execução  
-  - Demanda associada :contentReference[oaicite:10]{index=10}  
+  - Demanda associada 
 
   **Funcionalidades:**
 
   - Registrar nova ação técnica em uma demanda.
   - Listar todas as ações técnicas de uma demanda (histórico).
 
-  ---
+ 
 
   ## 🐘 Banco de Dados
 
@@ -201,3 +168,9 @@
   - `docker-compose.yml`
   - `.env.example` com as variáveis necessárias (ex.: URL do banco, portas etc.)
   - Instruções claras no README para execução com e sem Docker.
+
+
+  ## Telas Do Sistema
+
+
+- 
