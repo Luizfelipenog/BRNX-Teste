@@ -1,6 +1,17 @@
 import "./Menu.css";
 import { useNavigate } from "react-router-dom";
 
+
+
+
+
+
+import {
+  LayoutDashboard,
+  Server,
+  FolderKanban,
+  Wrench
+} from "lucide-react";
 export default function Menu() {
   const navigate = useNavigate();
 
@@ -10,16 +21,29 @@ export default function Menu() {
       {/* SIDEBAR */}
       <aside className="sidebar">
         <div className="sidebar-header">
-          <span className="sidebar-logo">BRNX</span>
+          <img src="/brnx.png" alt="Logo BRNX" className="sidebar-logo" />
         </div>
 
         <nav className="sidebar-nav">
-          <button className="active">Menu Principal</button>
-          <button>Provedores</button>
-          <button>Demandas</button>
-          <button>Ações Técnicas</button>
-          <button>Configurações</button>
-          <button onClick={() => navigate("/")}>Logout</button>
+          <button className="active">
+            <LayoutDashboard size={20} className="icon" />
+            <span>Menu Principal</span>
+          </button>
+
+          <button>
+            <Server size={20} className="icon" />
+            <span>Provedores</span>
+          </button>
+
+          <button>
+            <FolderKanban size={20} className="icon" />
+            <span>Demandas</span>
+          </button>
+
+          <button>
+            <Wrench size={20} className="icon" />
+            <span>Ações Técnicas</span>
+          </button>
         </nav>
       </aside>
 
