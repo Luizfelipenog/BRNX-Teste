@@ -1,14 +1,136 @@
+/* GLOBAL RESET */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* CONTAINER GERAL */
 .home-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+}
+
+/* LADO ESQUERDO */
+.left-side {
+  width: 50%;
+  background: linear-gradient(135deg, #0077ff, #004a99);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 40px;
   text-align: center;
 }
 
-.home-container h1 {
-  color: #1a73e8;
-  margin-bottom: 10px;
+/* LOGO */
+.logo {
+  width: 180px;
+  margin-bottom: 20px;
 }
 
-.home-container p {
-  color: #444;
-  font-size: 18px;
+/* LADO DIREITO */
+.right-side {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f4f4f4;
+}
+
+/* FORMULÁRIO */
+.form-box {
+  width: 384px;
+  background: #ffffff;
+  border-radius: 10px;
+
+  box-shadow: 
+    0px 0px 1px rgba(23, 26, 31, 0.86),
+    0px 0px 2px rgba(23, 26, 31, 0.08);
+
+  padding: 40px;
+  animation: fadeIn 0.7s ease;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  /* Correção essencial */
+  box-sizing: border-box;
+}
+
+/* TÍTULO */
+.form-box h1 {
+  margin-bottom: 25px;
+  color: #333;
+  text-align: center;
+}
+
+/* TEXTO */
+.form-box p {
+  margin-bottom: 25px;
+  color: #666;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* FORM INTERNO */
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* INPUTS */
+.login-form input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #c9cdd2;
+  background: #f8f9fa;
+  transition: 0.2s ease;
+
+  box-sizing: border-box;
+}
+
+.login-form input:focus {
+  border-color: #0077ff;
+  background: #fff;
+  box-shadow: 0px 0px 4px rgba(0, 119, 255, 0.4);
+}
+
+/* BOTÃO */
+.login-form button {
+  width: 100%;
+  padding: 12px;
+  background: #0077ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-sizing: border-box;
+}
+
+.login-form button:hover {
+  background: #005fcc;
+}
+
+/* ANIMAÇÃO */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
