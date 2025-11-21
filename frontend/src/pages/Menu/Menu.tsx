@@ -59,8 +59,20 @@ export default function Menu() {
           {/* CARD PROVEDORES */}
           <div className="card">
             <h3>Provedores</h3>
-            <button className="btn-primary">Listar Provedores</button>
-            <button className="btn-secondary">Cadastrar Provedor</button>
+
+            <button
+              className="btn-primary"
+              onClick={() => navigate("/Provedores/Listar")}
+            >
+              Listar Provedores
+            </button>
+
+            <button
+              className="btn-secondary"
+              onClick={() => navigate("/Provedores/Cadastrar")}
+            >
+              Cadastrar Provedor
+            </button>
           </div>
 
           {/* CARD DEMANDAS */}
