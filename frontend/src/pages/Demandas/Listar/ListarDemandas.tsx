@@ -1,41 +1,45 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { PlusCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import "./ListarDemandas.css";
+import api from "../../../services/api";
 
 export default function ListarDemandas() {
   const navigate = useNavigate();
 
-  const demandas = [
-    {
-      titulo: "Problema de conexão na Unidade Central",
-      provedor: "Provedor Alpha",
-      tipo: "Diagnóstico",
-      status: "Em Andamento",
-      data: "2023-10-26",
-    },
-    {
-      titulo: "Instalação de novo ponto de acesso B",
-      provedor: "Provedor Beta",
-      tipo: "Instalação",
-      status: "Em Aberto",
-      data: "2023-10-25",
-    },
-    {
-      titulo: "Manutenção preventiva de servidores de borda",
-      provedor: "Provedor Alpha",
-      tipo: "Manutenção",
-      status: "Concluído",
-      data: "2023-10-20",
-    },
-  ];
+  const [demandas, setDemandas] = useState([]);
+  const [provedores, setProvedores] = useState([]);
 
   const [filtroProvedor, setFiltroProvedor] = useState("");
   const [filtroStatus, setFiltroStatus] = useState("");
 
-  const listaFiltrada = demandas.filter((d) => {
+  async function fetchDemandas() {
+    try {
+      const response = await api.get("/api/demands");
+      setDemandas(response.data);
+    } catch (error) {
+      console.error("Erro ao buscar demandas:", error);
+      alert("Não foi possível carregar as demandas.");
+    }
+  }
+
+  async function fetchProvedores() {
+    try {
+      const response = await api.get("/api/providers");
+      setProvedores(response.data);
+    } catch (error) {
+      console.error("Erro ao buscar provedores:", error);
+    }
+  }
+
+  useEffect(() => {
+    fetchDemandas();
+    fetchProvedores();
+  }, []);
+
+  const listaFiltrada = demandas.filter((d: any) => {
     return (
-      (filtroProvedor === "" || d.provedor === filtroProvedor) &&
+      (filtroProvedor === "" || d.providerId === filtroProvedor) &&
       (filtroStatus === "" || d.status === filtroStatus)
     );
   });
@@ -55,23 +59,29 @@ export default function ListarDemandas() {
 
       {/* FILTROS */}
       <div className="filtros-container">
+        {/* FILTRO PROVEDOR */}
         <select
           value={filtroProvedor}
           onChange={(e) => setFiltroProvedor(e.target.value)}
         >
           <option value="">Todos os Provedores</option>
-          <option value="Provedor Alpha">Provedor Alpha</option>
-          <option value="Provedor Beta">Provedor Beta</option>
+          {provedores.map((p: any) => (
+            <option key={p.id} value={p.id}>
+              {p.nomeFantasia}
+            </option>
+          ))}
         </select>
 
+        {/* FILTRO STATUS */}
         <select
           value={filtroStatus}
           onChange={(e) => setFiltroStatus(e.target.value)}
         >
           <option value="">Todos os Status</option>
-          <option value="Em Andamento">Em Andamento</option>
-          <option value="Em Aberto">Em Aberto</option>
-          <option value="Concluído">Concluído</option>
+          <option value="PENDENTE">Pendente</option>
+          <option value="EM_ANDAMENTO">Em Andamento</option>
+          <option value="CONCLUIDA">Concluída</option>
+          <option value="CANCELADA">Cancelada</option>
         </select>
       </div>
 
@@ -90,29 +100,34 @@ export default function ListarDemandas() {
           </thead>
 
           <tbody>
-            {listaFiltrada.map((d, index) => (
-              <tr key={index}>
-                <td>{d.titulo}</td>
-                <td>{d.provedor}</td>
+            {listaFiltrada.map((d: any) => (
+              <tr key={d.id}>
+                <td>{d.title}</td>
+
+                <td>{d.provider?.nomeFantasia || "—"}</td>
+
                 <td>
-                  <span className={`tag tag-${d.tipo.toLowerCase()}`}>
-                    {d.tipo}
+                  <span className={`tag tag-${d.type.toLowerCase()}`}>
+                    {d.type}
                   </span>
                 </td>
+
                 <td>
                   <span
                     className={`status status-${d.status
                       .toLowerCase()
-                      .replace(/ /g, "-")}`}
+                      .replace(/_/g, "-")}`}
                   >
                     {d.status}
                   </span>
                 </td>
-                <td>{d.data}</td>
+
+                <td>{new Date(d.createdAt).toLocaleDateString()}</td>
+
                 <td>
                   <button
                     className="btn-detalhes"
-                    onClick={() => navigate("/demandas/detalhes")}
+                    onClick={() => navigate(`/demandas/detalhes?id=${d.id}`)}
                   >
                     Detalhes
                   </button>
