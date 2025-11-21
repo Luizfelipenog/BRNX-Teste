@@ -16,7 +16,7 @@ export default function Home() {
     setSenha("");
 
 
-    navigate("/menu");
+    navigate("/Menu");
   }
   return (
   <div className="home-container">
