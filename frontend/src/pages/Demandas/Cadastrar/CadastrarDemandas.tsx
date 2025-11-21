@@ -169,7 +169,7 @@ export default function CadastrarDemandas() {
             <button
               type="button"
               className="btn-back"
-              onClick={() => navigate("/demandas/listar")}
+              onClick={() => navigate("/menu")}
             >
               <ArrowLeftCircle size={18} /> Voltar
             </button>

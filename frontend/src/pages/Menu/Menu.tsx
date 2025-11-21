@@ -77,7 +77,7 @@ export default function Menu() {
           {/* CARD SISTEMA */}
           <div className="card">
             <h3>Sistema</h3>
-            <button className="btn-primary" onClick={() => navigate("/")}>
+            <button className="btn btn-danger" onClick={() => navigate("/")}>
               Logout
             </button>
           </div>

@@ -106,7 +106,7 @@ export default function ProviderForm() {
           <button
             type="button"
             className="btn-back"
-            onClick={() => navigate("/provedores")}
+            onClick={() => navigate("/menu")}
           >
             <ArrowLeftCircle size={18} /> Voltar
           </button>
