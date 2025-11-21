@@ -59,11 +59,18 @@
   cursor: pointer;
   font-weight: bold;
   transition: 0.2s;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
+
 
 .btn-primary:hover {
   background: #1d6fd6;
 }
+
 
 .btn-secondary {
   background: #ffffff;
@@ -73,6 +80,11 @@
   border-radius: 8px;
   cursor: pointer;
   transition: 0.2s;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .btn-secondary:hover {

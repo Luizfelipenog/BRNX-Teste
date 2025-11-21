@@ -45,14 +45,14 @@ export default function Menu() {
           {/* CARD AÇÕES TÉCNICAS */}
           <div className="card">
             <h3>Ações Técnicas</h3>
-            <button className="btn-secondary">Registrar Ação Técnica</button>
+            <button className="btn-primary">Registrar Ação Técnica</button>
             <button className="btn-secondary">Consultar Histórico</button>
           </div>
 
           {/* CARD SISTEMA */}
           <div className="card">
             <h3>Sistema</h3>
-            <button className="btn-secondary" onClick={() => navigate("/")}>
+            <button className="btn-primary" onClick={() => navigate("/")}>
               Logout
             </button>
           </div>

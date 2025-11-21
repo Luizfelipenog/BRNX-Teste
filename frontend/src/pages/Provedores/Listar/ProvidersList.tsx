@@ -1,5 +1,7 @@
 import "./ProvidersList.css";
 import { Pencil, Trash2, PlusCircle } from "lucide-react";
+import { Link } from "react-router-dom";
+
 
 export default function ProvidersList() {
   const providers = [
@@ -15,10 +17,11 @@ export default function ProvidersList() {
     <div className="providers-container">
       <div className="providers-header">
         <h1>Provedores</h1>
-        <button className="btn-primary">
-          <PlusCircle size={18} />
-          Cadastrar Provedor
-        </button>
+      <Link to="/provedores/cadastrar" className="btn-primary">
+        <PlusCircle size={18} />
+        Cadastrar
+      </Link>
+
       </div>
 
       <div className="providers-card">
