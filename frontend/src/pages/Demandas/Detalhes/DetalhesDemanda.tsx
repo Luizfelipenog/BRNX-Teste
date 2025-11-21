@@ -35,15 +35,21 @@ export default function DetalhesDemanda() {
 
   async function salvarAlteracoes() {
     try {
+      // enviar objeto COMPLETO para PUT funcionar corretamente
       await api.put(`/api/demands/${demandId}`, {
-        status,
+        id: demanda.id,
+        title: demanda.title,
+        description: demanda.description,
+        providerId: demanda.providerId,
+        createdAt: demanda.createdAt,
         type: tipo,
+        status: status
       });
 
       alert("Alterações salvas com sucesso!");
 
-    } catch (error) {
-      console.error("Erro ao salvar:", error);
+    } catch (error: any) {
+      console.error("Erro ao salvar:", error.response?.data || error);
       alert("Erro ao salvar alterações.");
     }
   }
@@ -97,16 +103,24 @@ export default function DetalhesDemanda() {
           <p>{new Date(demanda.createdAt).toLocaleDateString()}</p>
         </div>
 
-        <div className="buttons-container">
+       <div className="buttons-container">
 
-          <button className="btn-voltar" onClick={() => navigate("/demandas/listar")}>
+          <button
+            className="btn-voltar-detalhes"
+            onClick={() => navigate("/demandas/listar")}
+          >
             Voltar
           </button>
-          <button className="btn-salvar" onClick={salvarAlteracoes}>
+
+          <button
+            className="btn-salvar"
+            onClick={salvarAlteracoes}
+          >
             Salvar Alterações
           </button>
 
         </div>
+
 
       </div>
     </div>

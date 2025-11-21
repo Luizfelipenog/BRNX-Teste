@@ -50,7 +50,6 @@
   flex: 1;
 }
 
-/* SELECT DO STATUS */
 .info-group select {
   width: 100%;
   padding: 12px;
@@ -68,60 +67,52 @@
   outline: none;
 }
 
-/* RESPONSIVO */
 @media (max-width: 768px) {
   .info-row {
     flex-direction: column;
   }
 }
 
-/* CONTAINER DOS BOTÕES */
 .buttons-container {
   display: flex;
   justify-content: flex-end;
-  gap: 15px;         /* espaço entre os botões */
+  gap: 15px;
   margin-top: 25px;
 }
 
-/* ESTILOS BASE PARA AMBOS BOTÕES */
+/* BOTÃO SALVAR – MANTÉM A MESMA CLASSE */
 .btn-salvar,
-.btn-voltar {
-  min-width: 160px;      /* garante mesmo tamanho */
-  text-align: center;
+.btn-voltar-detalhes {
+  width: 180px;            
   padding: 12px 20px;
   font-size: 15px;
   font-weight: 600;
+  text-align: center;
   border-radius: 10px;
   cursor: pointer;
-  transition: 0.2s ease-in-out;
+  transition: 0.25s ease-in-out;
+  border: none;
+  display: inline-block;
 }
 
-/* BOTÃO SALVAR */
+/* SALVAR */
 .btn-salvar {
   background: #0077ff;
-  color: white;
-  border: none;
+  color: #fff;
 }
 
 .btn-salvar:hover {
-  background: #005fcc;
-  transform: translateY(-2px);
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  background: #0062d6;
+  transform: translateY(-3px);
 }
 
-.btn-salvar:active {
-  transform: translateY(0);
-  box-shadow: none;
+/* VOLTAR */
+.btn-voltar-detalhes {
+  background: #fc0202;
+  color: #fff; /* <- antes era #333, agora igual ao salvar */
 }
 
-/* BOTÃO VOLTAR */
-.btn-voltar {
-  background: #ff0000;
-  color: #ffffff;
-  border: 1px solid #ccc;
+.btn-voltar-detalhes:hover {
+  background: #990000;
+  transform: translateY(-3px);
 }
-
-.btn-voltar:hover {
-  background: #e4e4e4;
-}
-
